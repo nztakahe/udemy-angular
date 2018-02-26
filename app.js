@@ -8,7 +8,10 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 
 var app = express();
-mongoose.connect('mongodb://localhost:27017/node-angular');
+
+const dbconn = 'mongodb://user:password@ds249418.mlab.com:49418/heroku_b8601x89';
+// 'mongodb://localhost:27017/node-angular'
+mongoose.connect(dbconn);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
