@@ -9,7 +9,7 @@ var appRoutes = require('./routes/app');
 
 var app = express();
 
-const dbconn = 'mongodb://user:password@ds249418.mlab.com:49418/heroku_b8601x89';
+const dbconn = 'mongodb://username:password@ds249418.mlab.com:49418/heroku_b8601x89';
 // 'mongodb://localhost:27017/node-angular'
 mongoose.connect(dbconn);
 
