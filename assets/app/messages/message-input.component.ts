@@ -1,6 +1,7 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Message} from "./message.model";
-import {MessageService} from "./message.service"
+import {MessageService} from "./message.service";
+import {NgForm, FormControl, Validators} from "@angular/forms";
 
 @Component({
     selector: 'app-message-input',
@@ -8,14 +9,19 @@ import {MessageService} from "./message.service"
 //    providers: [MessageService]
 })
 
-export class MessageImportComponent{
+export class MessageImportComponent {
     constructor(private messageService: MessageService){}
 
-    onSave(value: string) {
-        console.log(value);
-        let msg = new Message(value, "newmsguser");
+    onSubmit(form: NgForm) {
+        console.log(form);
+        let msg = new Message(form.value.content, "newmsguser");
         this.messageService.addMessage(msg);
-        
+        form.resetForm();
     }
 
+/* implements OnInit - check minimum length
+    ngOnInit(): void {
+        let t = new FormControl(this.msg, [Validators.required, Validators.minLength(2)]);
+    }
+*/
 }
