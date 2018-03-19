@@ -14,7 +14,7 @@ export class MessageImportComponent {
 
     onSubmit(form: NgForm) {
         console.log(form);
-        let msg = new Message(form.value.content, "newmsguser");
+        const msg = new Message(form.value.content, "newmsguser");
         this.messageService.addMessage(msg);
         form.resetForm();
     }
